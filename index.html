@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hide & Seek Online — outsmart your friends in the ultimate multiplayer chase.">
+  <title>Hide & Seek Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="logo" href="#lobby" aria-label="Hide and Seek Online home">
+      <span class="logo-symbol"><i></i><i></i></span>
+      <span class="logo-copy"><b>HIDE <em>&</em> SEEK</b><small>ONLINE</small></span>
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <a class="active" href="#lobby"><span>⌂</span> Lobby</a>
+      <a href="#how-to-play"><span>?</span> How to play</a>
+      <a href="#rules"><span>◇</span> Game rules</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button" id="soundToggle" type="button" aria-label="Mute sound" aria-pressed="false">◖</button>
+      <div class="coins" title="Your coins"><span class="coin-icon">C</span><strong id="coinCount">2,480</strong><button id="addCoins" type="button" aria-label="Claim daily coins">+</button></div>
+      <button class="profile-mini" id="profileButton" type="button">
+        <span class="avatar avatar-player"><i>NP</i><b class="online-dot"></b></span>
+        <span><strong>NovaPulse</strong><small>Level 24</small></span>
+        <i class="chevron">⌄</i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="lobby" id="lobby">
+      <div class="hero-copy">
+        <div class="live-pill"><i></i> 12,842 players online</div>
+        <h1>HIDE.<br><span>SEEK.</span><br><em>OUTSMART.</em></h1>
+        <p>One seeker. Five hiders. Every corner is a chance to win—or get caught.</p>
+
+        <div class="match-stats">
+          <div><strong>6</strong><span>Players</span></div>
+          <i></i>
+          <div><strong>05:00</strong><span>Match time</span></div>
+          <i></i>
+          <div><strong>7</strong><span>Maps</span></div>
+        </div>
+        <button class="private-button" type="button" id="privateButton"><span>＋</span> Create private room</button>
+      </div>
+
+      <div class="game-preview" aria-label="Selected map game preview">
+        <div class="preview-glow"></div>
+        <div class="preview-top">
+          <div><span>Selected map</span><strong id="previewMapName">Forest Camp</strong></div>
+          <span class="mode-chip">CLASSIC · 1V5</span>
+        </div>
+        <div class="scene forest-scene" id="previewScene">
+          <div class="preview-aurora"></div>
+          <div class="preview-orbit orbit-one"></div>
+          <div class="preview-orbit orbit-two"></div>
+          <div class="preview-pulse"></div>
+          <div class="preview-spark spark-a"></div>
+          <div class="preview-spark spark-b"></div>
+          <div class="preview-spark spark-c"></div>
+          <div class="moon"></div>
+          <div class="mountain mountain-one"></div><div class="mountain mountain-two"></div>
+          <div class="tree-line back"></div><div class="tree-line front"></div>
+          <div class="cabin"><i></i><b></b><span></span></div>
+          <div class="tent"><i></i></div>
+          <div class="campfire"><i></i><i></i><i></i></div>
+          <div class="hider-character"><span class="head"></span><span class="body"></span><i>!</i></div>
+          <div class="seeker-light"></div>
+          <div class="seeker-character"><span class="head"></span><span class="body"></span><i></i></div>
+          <span class="preview-label label-hider">HIDER</span>
+          <span class="preview-label label-seeker">SEEKER</span>
+          <div class="scanlines"></div>
+        </div>
+        <div class="preview-bottom">
+          <div class="team-icons"><span class="mini-avatar purple">N</span><span class="mini-avatar green">J</span><span class="mini-avatar orange">K</span><span class="mini-avatar blue">A</span><span class="more-players">+2</span></div>
+          <div class="fill-status"><span><i></i> Quick match</span><strong>Usually fills in &lt; 20 sec</strong></div>
+        </div>
+      </div>
+
+      <div class="menu-rail">
+        <div class="quick-play-card">
+          <span class="play-burst burst-one">★</span><span class="play-burst burst-two">●</span><span class="play-burst burst-three">◆</span>
+          <small>READY FOR AN ADVENTURE?</small>
+          <h2>Jump into<br>the fun!</h2>
+          <button class="play-button" id="playButton" type="button">
+            <span class="play-icon">▶</span>
+            <span class="play-copy"><strong>PLAY!</strong><small>Quick match · 1 vs 5</small></span>
+            <span class="button-shine"></span>
+          </button>
+        </div>
+        <button class="daily-reward" id="dailyReward" type="button">
+          <span class="gift-icon">🎁</span>
+          <span><small>DAILY REWARD</small><strong id="dailyRewardText">Claim 250 coins!</strong></span>
+          <i>CLAIM</i>
+        </button>
+        <button class="skin-shop-button" id="skinShopButton" type="button"><span>👾</span><span><small>CHARACTER CLOSET</small><strong>Skins &amp; monsters</strong></span><i>SHOP →</i></button>
+        <div class="monster-strip" aria-label="Available monsters">
+          <span>MONSTER ROSTER</span>
+          <div>
+            <i class="monster-pill">Bloop</i>
+            <i class="monster-pill">Cosmo</i>
+            <i class="monster-pill">Draco</i>
+            <i class="monster-pill">Nova</i>
+          </div>
+        </div>
+      <aside class="friends-panel">
+        <div class="panel-title"><div><span>Friends</span><strong><i></i> 4 online</strong></div><button type="button" id="addFriend" aria-label="Add friend">＋</button></div>
+        <div class="friends-list" id="friendsList">
+          <article class="friend" data-name="PixelMoth"><span class="avatar avatar-1">PM<i class="online-dot"></i></span><div><strong>PixelMoth</strong><small>In lobby</small></div><button type="button" aria-label="Invite PixelMoth">＋</button></article>
+          <article class="friend" data-name="EchoFox"><span class="avatar avatar-2">EF<i class="online-dot playing"></i></span><div><strong>EchoFox</strong><small class="in-game">In game · 03:12</small></div><button type="button" aria-label="Invite EchoFox">＋</button></article>
+          <article class="friend" data-name="MistyVibe"><span class="avatar avatar-3">MV<i class="online-dot"></i></span><div><strong>MistyVibe</strong><small>In lobby</small></div><button type="button" aria-label="Invite MistyVibe">＋</button></article>
+          <article class="friend" data-name="ArcticByte"><span class="avatar avatar-4">AB<i class="online-dot away"></i></span><div><strong>ArcticByte</strong><small>Away</small></div><button type="button" aria-label="Invite ArcticByte">＋</button></article>
+        </div>
+        <button class="view-all" type="button">View all friends <span>→</span></button>
+
+        <div class="profile-card">
+          <div class="profile-level"><span class="avatar avatar-player"><i>NP</i></span><div><small>YOUR PROFILE</small><strong>NovaPulse <i>24</i></strong></div></div>
+          <div class="xp-head"><span>XP progress</span><strong id="xpLabel">7,250 / 10,000</strong></div>
+          <div class="xp-bar"><i id="xpProgress"></i></div>
+          <small class="xp-note"><span>⚡</span> 2,750 XP until level 25</small>
+        </div>
+      </aside>
+      </div>
+    </section>
+
+    <section class="map-section" id="maps">
+      <div class="section-intro">
+        <div><span class="overline">Choose your playground</span><h2>Map variations</h2></div>
+        <p>Each map has unique hiding spots, shortcuts and secrets. Choose wisely.</p>
+      </div>
+      <div class="map-grid">
+        <button class="map-card school" type="button" data-map="School After Dark" data-scene="school-scene">
+          <span class="map-art"><i class="school-building"></i><i class="window-grid"></i><b>02:14</b></span>
+          <span class="map-info"><span><small>MEDIUM</small><strong>School After Dark</strong></span><i>→</i></span>
+        </button>
+        <button class="map-card forest selected" type="button" data-map="Forest Camp" data-scene="forest-scene">
+          <span class="selected-tag">SELECTED</span>
+          <span class="map-art"><i class="forest-trees"></i><i class="map-tent"></i><b>05:00</b></span>
+          <span class="map-info"><span><small>EASY</small><strong>Forest Camp</strong></span><i>✓</i></span>
+        </button>
+        <button class="map-card mall" type="button" data-map="Neon Mall" data-scene="mall-scene">
+          <span class="map-art"><i class="mall-sign">MALL</i><i class="escalator"></i><b>03:45</b></span>
+          <span class="map-info"><span><small>HARD</small><strong>Neon Mall</strong></span><i>→</i></span>
+        </button>
+        <button class="map-card tropical" type="button" data-map="Tropical Bay" data-scene="tropical-scene">
+          <span class="map-art"><i class="tropical-sun"></i><i class="palm-art palm-left"></i><i class="palm-art palm-right"></i><i class="island-hut"></i><b>04:30</b></span>
+          <span class="map-info"><span><small>MEDIUM</small><strong>Tropical Bay</strong></span><i>→</i></span>
+        </button>
+        <button class="map-card themepark" type="button" data-map="Wonder Park" data-scene="themepark-scene">
+          <span class="map-art"><i class="ferris-art"><b></b></i><i class="coaster-art"></i><i class="park-tent-art"></i><b>05:00</b></span>
+          <span class="map-info"><span><small>HARD</small><strong>Wonder Park</strong></span><i>→</i></span>
+        </button>
+        <button class="map-card space" type="button" data-map="Starship Drift" data-scene="space-scene">
+          <span class="map-art"><i class="ship-bridge"></i><i class="ship-window"></i><i class="ship-boost"></i><b>03:20</b></span>
+          <span class="map-info"><span><small>HARD</small><strong>Starship Drift</strong></span><i>→</i></span>
+        </button>
+        <button class="map-card volcano" type="button" data-map="Volcano Forge" data-scene="volcano-scene">
+          <span class="map-art"><i class="volcano-lava"></i><i class="volcano-ridge"></i><i class="volcano-vent"></i><b>04:10</b></span>
+          <span class="map-info"><span><small>EXPERT</small><strong>Volcano Forge</strong></span><i>→</i></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-to-play">
+      <div class="section-intro centered"><div><span class="overline">Learn the chase</span><h2>How to play</h2></div><p>Simple to learn. Impossible to master.</p></div>
+      <div class="role-cards">
+        <article class="role-card hider-role">
+          <div class="role-top"><span class="role-icon">◒</span><span>01 / HIDER</span></div>
+          <h3>Disappear into<br>plain sight.</h3>
+          <p>You have <strong>30 seconds</strong> to find the perfect hiding spot. Stay quiet, move smart, and survive until time runs out.</p>
+          <ul><li><i>✓</i> Use props and dark corners</li><li><i>✓</i> Watch your noise meter</li><li><i>✓</i> Earn 150 coins for surviving</li></ul>
+        </article>
+        <div class="versus"><span>VS</span></div>
+        <article class="role-card seeker-role">
+          <div class="role-top"><span class="role-icon">◎</span><span>02 / SEEKER</span></div>
+          <h3>Find them<br>before time does.</h3>
+          <p>One seeker has <strong>5 minutes</strong> to find all five hiders. Follow clues, listen carefully, and tag everyone.</p>
+          <ul><li><i>✓</i> Track footprints and sounds</li><li><i>✓</i> Use one pulse scan per minute</li><li><i>✓</i> Earn 50 coins per capture</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="rules-section" id="rules">
+      <div class="rules-heading"><span class="overline">Fair play makes great games</span><h2>The rules are simple.</h2></div>
+      <div class="rules-grid">
+        <article><span>01</span><h3>One vs five</h3><p>One random player becomes the seeker. The other five must hide.</p></article>
+        <article><span>02</span><h3>Thirty seconds</h3><p>Hiders get a head start to scatter and find their safest position.</p></article>
+        <article><span>03</span><h3>Five minutes</h3><p>The seeker wins by finding everyone before the match timer expires.</p></article>
+        <article><span>04</span><h3>Earn rewards</h3><p>Win matches, complete challenges, gain XP and collect coins.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo footer-logo" href="#lobby"><span class="logo-symbol"><i></i><i></i></span><span class="logo-copy"><b>HIDE <em>&</em> SEEK</b><small>ONLINE</small></span></a>
+    <p>© 2026 Hide & Seek Online. Play fair. Hide better.</p>
+    <div><a href="#">Discord</a><a href="#">Support</a><a href="#">Privacy</a></div>
+  </footer>
+
+  <div class="matchmaking" id="matchmaking" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="matchTitle">
+    <div class="match-modal">
+      <button class="close-modal" id="cancelMatch" type="button" aria-label="Cancel matchmaking">×</button>
+      <div class="radar"><i></i><i></i><i></i><span>◎</span></div>
+      <span class="match-kicker">QUICK MATCH</span>
+      <h2 id="matchTitle">Finding players<span class="loading-dots">...</span></h2>
+      <p id="matchStatus">Searching the nearest servers</p>
+      <div class="player-slots" id="playerSlots"><i class="filled">NP</i><i></i><i></i><i></i><i></i><i></i></div>
+      <strong class="players-found" id="playersFound">1 / 6 players</strong>
+      <div class="match-countdown"><span id="countdownLabel">Estimated wait</span><strong id="matchTimer">00:12</strong></div>
+      <button class="cancel-button" id="cancelMatchBottom" type="button">Cancel matchmaking</button>
+    </div>
+  </div>
+
+  <section class="game-screen" id="gameScreen" aria-hidden="true" aria-label="Hide and Seek match">
+    <header class="game-hud">
+      <div class="hud-brand">
+        <button id="leaveGame" type="button" aria-label="Leave match">←</button>
+        <div><span id="gameMapLabel">FOREST CAMP</span><strong id="gamePhaseLabel">HIDERS ARE HIDING</strong></div>
+      </div>
+      <div class="game-clock"><span id="clockLabel">HIDING PHASE</span><strong id="gameClock">00:30</strong></div>
+      <div class="hud-found">
+        <span>HIDERS FOUND</span>
+        <div id="foundTracker"><i>?</i><i>?</i><i>?</i><i>?</i><i>?</i></div>
+        <strong id="foundCount">0 / 5</strong>
+      </div>
+    </header>
+
+    <div class="play-arena forest-game" id="playArena">
+      <canvas class="game-canvas" id="gameCanvas" aria-label="Playable Hide and Seek map"></canvas>
+      <div class="world-objective"><span>OBJECTIVE</span><strong id="objectiveText">Wait for the hiders</strong><small id="areaName">Central clearing</small></div>
+      <div class="mini-map-wrap"><span>MAP</span><canvas id="miniMap" width="160" height="105" aria-label="Map overview"></canvas></div>
+      <div class="match-coin-counter"><span class="coin-icon">C</span><div><small>MATCH COINS</small><strong id="matchCoinCount">0</strong></div></div>
+      <div class="interaction-prompt" id="interactionPrompt"><kbd>E</kbd><span>Search <strong>object</strong></span></div>
+      <div class="movement-help"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><strong>MOVE</strong><i>·</i><span><kbd>E</kbd></span><strong>SEARCH</strong><i>·</i><span><kbd>Q</kbd></span><strong>PULSE</strong></div>
+      <div class="touch-controls" aria-label="Touch controls">
+        <div class="touch-stick"><button type="button" data-move="up" aria-label="Move up">▲</button><button type="button" data-move="left" aria-label="Move left">◀</button><button type="button" data-move="down" aria-label="Move down">▼</button><button type="button" data-move="right" aria-label="Move right">▶</button></div>
+        <div class="touch-actions"><button class="touch-action touch-sprint" id="touchSprint" type="button">SPRINT<small>HOLD</small></button><button class="touch-action" id="touchSearch" type="button">SEARCH<small>E</small></button></div>
+      </div>
+      <div class="arena-sky"><i></i><i></i><i></i></div>
+      <div class="arena-ground"></div>
+      <div class="arena-title"><span>YOU ARE THE</span><strong>SEEKER</strong><small>Click objects to search them</small></div>
+
+      <button class="search-spot prop-tree p1" type="button" data-spot="0" aria-label="Search the tall tree"><span></span><i></i></button>
+      <button class="search-spot prop-bush p2" type="button" data-spot="1" aria-label="Search the bushes"><span></span><i></i></button>
+      <button class="search-spot prop-crate p3" type="button" data-spot="2" aria-label="Search the crates"><span></span><i></i></button>
+      <button class="search-spot prop-tent p4" type="button" data-spot="3" aria-label="Search the tent"><span></span><i></i></button>
+      <button class="search-spot prop-rock p5" type="button" data-spot="4" aria-label="Search the rocks"><span></span><i></i></button>
+      <button class="search-spot prop-locker p6" type="button" data-spot="5" aria-label="Search the locker"><span></span><i></i></button>
+      <button class="search-spot prop-barrel p7" type="button" data-spot="6" aria-label="Search the barrel"><span></span><i></i></button>
+      <button class="search-spot prop-bench p8" type="button" data-spot="7" aria-label="Search under the bench"><span></span><i></i></button>
+      <button class="search-spot prop-dumpster p9" type="button" data-spot="8" aria-label="Search the dumpster"><span></span><i></i></button>
+      <button class="search-spot prop-vending p10" type="button" data-spot="9" aria-label="Search the vending machine"><span></span><i></i></button>
+      <button class="search-spot prop-sign p11" type="button" data-spot="10" aria-label="Search behind the sign"><span></span><i></i></button>
+      <button class="search-spot prop-log p12" type="button" data-spot="11" aria-label="Search the fallen log"><span></span><i></i></button>
+
+      <div class="game-event" id="gameEvent" role="status" aria-live="polite"></div>
+
+      <div class="hide-overlay" id="hideOverlay">
+        <div class="hide-eye">—<i></i></div>
+        <span>NO PEEKING!</span>
+        <h2>The hiders are hiding…</h2>
+        <p>The map is hidden until the search begins in <strong id="hideCountdown">30</strong> seconds.</p>
+        <button id="skipHiding" type="button">Skip countdown</button>
+      </div>
+
+      <div class="result-overlay" id="gameResult" aria-hidden="true">
+        <div class="result-card">
+          <span class="result-icon" id="resultIcon">★</span>
+          <small id="resultKicker">MATCH COMPLETE</small>
+          <h2 id="gameResultTitle">All hiders found!</h2>
+          <p id="gameResultText">You cleared the map with time to spare.</p>
+          <div class="reward-row"><div><span>CAPTURES</span><strong id="resultCaptures">5 / 5</strong></div><div><span>COINS EARNED</span><strong id="resultCoins">+400</strong></div><div><span>XP EARNED</span><strong id="resultXp">+500</strong></div></div>
+          <button id="playAgainGame" type="button">PLAY AGAIN <span>↻</span></button>
+          <button id="openShopResult" type="button">Character shop</button>
+          <button id="returnLobby" type="button">Return to lobby</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="game-controls">
+      <div class="seeker-status"><span class="seeker-avatar">◎</span><div><small>PLAYING AS</small><strong>NovaPulse · Seeker</strong></div></div>
+      <div class="game-tip" id="gameTip"><span>TIP</span> Collect floating coins and hold Shift to sprint.</div>
+      <div class="game-action-buttons">
+        <button class="sprint-button" id="sprintButton" type="button"><span>»</span><div><strong>SPRINT</strong><small id="sprintStatus">100%</small><b><i id="staminaFill"></i></b></div><em>SHIFT</em></button>
+        <button class="pulse-button" id="pulseButton" type="button"><span>⌁</span><div><strong>PULSE SCAN</strong><small id="pulseStatus">Ready</small></div><i>Q</i></button>
+      </div>
+    </footer>
+  </section>
+
+  <section class="skin-shop" id="skinShop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="skinShopTitle">
+    <div class="shop-panel">
+      <button class="shop-close" id="closeSkinShop" type="button" aria-label="Close character shop">×</button>
+      <div class="shop-heading"><span>CHARACTER CLOSET</span><h2 id="skinShopTitle">Pick your look!</h2><p>Collect coins in matches to unlock friendly creatures and colorful costumes.</p></div>
+      <div class="shop-balance"><span class="coin-icon">C</span><strong id="shopCoinCount">2,480</strong><small>YOUR COINS</small></div>
+      <div class="skin-grid" id="skinGrid"></div>
+      <p class="shop-note">Your unlocked skins and selected character are saved on this device.</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span>✓</span><p>Invite sent!</p></div>
+  <script src="script.js"></script>
+</body>
+</html>
